@@ -25,7 +25,7 @@ time box on the page. If either of those exist it will respect the setting.
 Screenshot
 ----------
 
-![Rally Tree Grid Screenshot](https://github.com/sficarrotta/task_kanban/tree/master/deploy/TaskStatusMapped.png)
+![Rally Tree Grid Screenshot](https://github.com/sficarrotta/TaskBoardWithStatusMapping/blob/master/deploy/TaskStatusMapped.png)
 
 ## License
 
