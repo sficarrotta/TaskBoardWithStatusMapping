@@ -17,7 +17,7 @@ To use a different field name, changed the value of "mappedFromField". To change
 drop down values and/or mappings change the fieldNameMap appropriately.
 
 The task cards show FormattedID, WorkProduct, Estimate, and ToDo. Change the cardConfig 
-Fields to change which
+Fields to change which fields to display on a card.
 
 This app respects project scope and looks for the existence of a release or iteration 
 time box on the page. If either of those exist it will respect the setting.
