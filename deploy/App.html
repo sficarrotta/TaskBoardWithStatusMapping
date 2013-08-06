@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TaskKanban</title>
+
+    <script type="text/javascript" src="/apps/2.0rc1/sdk.js"></script>
+
+    <script type="text/javascript">
+        Rally.onReady(function () {
+                Ext.define("CustomApp",{extend:"Rally.app.App",componentCls:"app",mappedToField:"State",mappedFromField:"TaskStatus",fieldNameMap:{New:"Defined","In Dev":"In-Progress","In QA":"In-Progress",Completed:"Completed"},launch:function(){var currentProject=this.getContext().getProject().Name,myFilter=Ext.create("Rally.data.QueryFilter",{property:"Project.Name",operator:"=",value:currentProject}),timeboxScope=this.getContext().getTimeboxScope();timeboxScope&&(myFilter=myFilter.and(timeboxScope.getQueryFilter()));var cardBoardConfig={xtype:"rallycardboard",types:["Task"],cardConfig:{xtype:"rallycard",fields:["Name","WorkProduct","Estimate","ToDo"]},attribute:this.mappedFromField,listeners:{beforecarddroppedsave:function(cardboard,card){var newState=this.fieldNameMap[card.record.get(this.mappedFromField)];card.record.set(this.mappedToField,newState)},scope:this},storeConfig:{filters:myFilter},fetch:"Name,Estimate,ToDo"};this.cardBoard=this.add(cardBoardConfig)}});
+
+            Rally.launchApp('CustomApp', {
+                name:"TaskKanban",
+	            parentRepos:""
+            });
+
+        });
+    </script>
+
+
+    <style type="text/css">
+        .app {
+     /* Add app styles here */
+}
+
+    </style>
+</head>
+<body></body>
+</html>
